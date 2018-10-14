@@ -4,7 +4,20 @@
     Author     : bachtiar
 --%>
 
+<%@page import="util.Strings_Management"%>
+<%@page import="util.Db_Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*,java.sql.*" %>
+<%@ page import="com.google.gson.Gson"%>
+<%@ page import="com.google.gson.JsonObject"%>
+
+
+<%
+  Connection conn = Db_Connection.getConnection();
+  Statement stmt;
+  ResultSet rs;
+%>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -25,6 +38,8 @@
     <link rel="stylesheet" href="assets/scss/style.css">
     <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+
   </head>
   <body>
     <!-- Left Panel -->
@@ -147,7 +162,69 @@
       </div>
       <!-- Header ends here-->
       <!-- BODY START HERE-->
+      <div>
+        <div class="card">
+          <div class="card-header">
+            <strong class="card-title">Detail by Liter</strong>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr align="Center">
+                  <th scope="col">#</th>
+                  <th scope="col">Start</th>
+                  <th scope="col">Finish</th>
+                  <th scope="col">Sale Number</th>                               
+                  <th scope="col">Meter Number</th>
+                  <th scope="col">Unit Id</th>
+                  <th scope="col">Site Id</th>
+                  <th scope="col">Ticket No</th>                  
+                  <th scope="col">Gross Deliver</th>
+                  <th scope="col">UOM</th>
+                  <th scope="col">Avg Flow Rate</th>
+                  <th scope="col">UOM</th>     
+                </tr>
+              </thead>              
+              <tbody>
+                <%
+                  try {
+                    conn = DriverManager.getConnection(Strings_Management.MYSQL_URL, Strings_Management.MYSQL_UNAME, Strings_Management.MYSQL_PASSWORD);
+                    stmt = conn.createStatement();
+                    String sql = "SELECT `site_id`, `ticket_no`,  SUBSTRING(`start`, 10,17), SUBSTRING(`finish`,10,17),"
+                            + " `gross_deliver`,`gross_deliver_uom`,  `avg_flow_rate`, `avg_flow_rate_uom`, "
+                            + " `sale_number`, `meter_number`, `unit_id` FROM `serial_data_results` "
+                            + "WHERE  SUBSTR(start,1,8) = '11/10/18' AND SUBSTR(finish,1,8) = '11/10/18' AND site_id = 'JATINEGARA' AND `duplicate` = ''";
+                    rs = stmt.executeQuery(sql);
+                    int no = 1;
+                    while (rs.next()) {
+                %>
+                <tr>
+                  <td align="Center" ><%= no++%> </td>
+                  <td align="center"><%=rs.getString("SUBSTRING(`start`, 10,17)")%></td>
+                  <td align="center"><%=rs.getString("SUBSTRING(`finish`,10,17)")%></td>
+                  <td align="center"><%=rs.getString("sale_number")%></td>
+                  <td align="center"><%=rs.getString("meter_number")%></td>
+                  <td align="center"><%=rs.getString("unit_id")%></td>
+                  <td align="center"><%=rs.getString("site_id")%></td>
+                  <td align="center"><%=rs.getString("ticket_no")%></td>                  
+                  <td align="center"><%=rs.getString("gross_deliver")%></td>
+                  <td align="center"><%=rs.getString("gross_deliver_uom")%></td>
+                  <td align="center"><%=rs.getString("avg_flow_rate")%></td>
+                  <td align="center"><%=rs.getString("avg_flow_rate_uom")%></td>
+                </tr>
+                <%
+                    }
+                    conn.close();
+                  } catch (Exception e) {
+                    e.printStackTrace();
+                  }
+                %>
+              </tbody>
+            </table>
 
+          </div>
+        </div>
+      </div>
 
       <!-- BODY ENDS HERE-->
     </div> <!-- .content -->

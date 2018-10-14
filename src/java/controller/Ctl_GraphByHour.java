@@ -5,10 +5,14 @@
  */
 package controller;
 
+import javax.servlet.http.HttpServlet;
+
 /**
  *
  * @author bachtiar
  */
-public class Ctl_GraphByHour {
+public class Ctl_GraphByHour extends HttpServlet {
+  
+  
   
 }
