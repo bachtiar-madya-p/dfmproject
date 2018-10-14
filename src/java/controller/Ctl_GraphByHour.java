@@ -9,6 +9,6 @@ package controller;
  *
  * @author bachtiar
  */
-public class ctl_graphbyhour {
+public class Ctl_GraphByHour {
   
 }
