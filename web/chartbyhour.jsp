@@ -165,23 +165,24 @@
       <div>
         <div class="card">
           <div class="card-header">
-            <strong class="card-title">Detail by Liter</strong>
+            <strong class="card-title">Detail by Liter : 11 October 2018</strong>
           </div>
           <div class="card-body">
             <table class="table">
               <thead class="thead-dark">
                 <tr align="Center">
                   <th scope="col">#</th>
-                  <th scope="col">Start</th>
-                  <th scope="col">Finish</th>
-                  <th scope="col">Sale Number</th>                               
-                  <th scope="col">Meter Number</th>
-                  <th scope="col">Unit Id</th>
-                  <th scope="col">Site Id</th>
-                  <th scope="col">Ticket No</th>                  
-                  <th scope="col">Gross Deliver</th>
+                  <th scope="col">FLOWMETER</th>
+                  <th scope="col">START</th>
+                  <th scope="col">FINISH</th>
+                  <th scope="col">SALE NUMBER</th>                               
+                  <th scope="col">METER NUMBER</th>
+                  <th scope="col">UNIT ID</th>
+                  <th scope="col">DIPO LOCATION</th>
+                  <th scope="col">TICKET NO</th>                  
+                  <th scope="col">GROSS DELIVER</th>
                   <th scope="col">UOM</th>
-                  <th scope="col">Avg Flow Rate</th>
+                  <th scope="col">AVG FLOW RATE</th>
                   <th scope="col">UOM</th>     
                 </tr>
               </thead>              
@@ -200,6 +201,7 @@
                 %>
                 <tr>
                   <td align="Center" ><%= no++%> </td>
+                  <td align="Center" > FM3</td>
                   <td align="center"><%=rs.getString("SUBSTRING(`start`, 10,17)")%></td>
                   <td align="center"><%=rs.getString("SUBSTRING(`finish`,10,17)")%></td>
                   <td align="center"><%=rs.getString("sale_number")%></td>
