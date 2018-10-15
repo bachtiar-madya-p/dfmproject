@@ -13,8 +13,5 @@ import javax.servlet.http.HttpServlet;
  */
 public class Ctl_GraphByHour extends HttpServlet {
   
- 
-  // bla bla bla
-    // bla bla bla
-    // bla bla bla
+
 }
