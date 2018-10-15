@@ -15,6 +15,8 @@ public class Strings_Management {
   public static final String MYSQL_UNAME = "root";
   public static final String MYSQL_PASSWORD = "";
   public static final String MYSQL_URL = "jdbc:mysql://localhost:3306/postenergy";
+
+
   
   //Strings
 }
