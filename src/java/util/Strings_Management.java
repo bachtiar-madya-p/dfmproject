@@ -13,7 +13,7 @@ public class Strings_Management {
 
   //MYSQL CONNECTION
   public static final String MYSQL_UNAME = "root";
-  public static final String MYSQL_PASSWORD = "";
+  public static final String MYSQL_PASSWORD = "Permadi#12345";
   public static final String MYSQL_URL = "jdbc:mysql://localhost:3306/postenergy";
 
 
