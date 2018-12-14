@@ -57,6 +57,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class SerialDataResults implements Serializable {
 
   private static final long serialVersionUID = 1L;
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Basic(optional = false)
@@ -114,6 +115,56 @@ public class SerialDataResults implements Serializable {
   private String otherFour;
   @Column(name = "other_five")
   private String otherFive;
+  
+  private String SumGross_Deliver;
+  private String Date;
+  
+  private String Bulan;
+  private String Total;
+  
+  private String Year;
+  private String TotalYear;
+  
+  private String date;
+  
+  
+  public String getYear(){
+      return Year;
+  }
+  public void setYear(String Year){
+      this.Year = Year;
+  }
+  public String getTotalYear(){
+      return TotalYear;
+  }
+  public void setTotalYear(String TotalYear){
+      this.TotalYear = TotalYear;
+  }
+  public String getSumDelivery(){
+      return SumGross_Deliver;
+  }
+  public void setSumDelivery(String SumGross_Deliver){
+      this.SumGross_Deliver = SumGross_Deliver;
+  }
+  public String getBulan(){
+      return Bulan;
+  }
+  public void setBulan(String Bulan){
+      this.Bulan =Bulan;
+  }
+    public String getTotalBulan(){
+      return Total;
+  }
+  public void setTotalBulan(String Total){
+      this.Total =Total;
+  }
+  
+  public String getDate(){
+      return Date;
+  }
+  public void setDate(String Date){
+      this.Date = Date;
+  }
 
   public SerialDataResults() {
   }
